@@ -10,11 +10,11 @@ $(document).ready(function(){
 			var checkedValue = $(this).prop('checked');
 
 			if (checkedValue === true ) {
-				$(this).parent($("li")).addClass('done');
+				$(this).parent("li").addClass('done');
 			}
 
 			else {
-				$(this).parent($("li")).removeClass('done');
+				$(this).parent("li").removeClass('done');
 			}
 		});
 	};
@@ -28,9 +28,10 @@ $(document).ready(function(){
 
 	submit.click(function(){
 		var gotValue = item.val();
-		var createElement = "<li><input type='checkbox' name='done-status'><label>" + gotValue + "</label><a href='#' class='close'><i class='icon-close'></i></a></li>";
+		var createElementIndex = baseListValues.length + 1;
+		var createElement = "<li><input type='checkbox' name='done-status' id='ch" + createElementIndex + "'><label for='ch" + createElementIndex + "'>" + gotValue + "</label><a href='#' class='close'><i class='icon-close'></i></a></li>";
 
-		if (gotValue === "" || $.inArray(gotValue, baseListValues) !== -1) {
+		if (gotValue === "" || $.inArray(gotValue, baseListValues) !== -1  || gotValue.trim().length === 0) {
 			item.addClass('error');
 		}
 
@@ -42,11 +43,11 @@ $(document).ready(function(){
 		item.val("");
 	});
 
-	remove.click(function(){
-		parent = $(this).parent($("li"));
-		removeValue = parent.find($('label')).html();
+	baseList.on("click", '.close', function(){
+		parent = $(this).parent("li");
+		removeValue = parent.find('label').html();
 		baseListValues.splice($.inArray(removeValue, baseListValues),1);
-		parent.remove();
+		parent.detach();
 	});
 
 	item.focus(function(){
