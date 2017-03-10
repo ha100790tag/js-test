@@ -28,8 +28,7 @@ $(document).ready(function(){
 
 	submit.click(function(){
 		var gotValue = item.val();
-		var createElementIndex = baseListValues.length + 1;
-		var createElement = "<li><input type='checkbox' name='done-status' id='ch" + createElementIndex + "'><label for='ch" + createElementIndex + "'>" + gotValue + "</label><a href='#' class='close'><i class='icon-close'></i></a></li>";
+		var createElement = "<li><input type='checkbox' name='done-status' id='ch_" + gotValue + "'><label for='ch_" + gotValue + "'>" + gotValue + "</label><a href='#' class='close'><i class='icon-close'></i></a></li>";
 
 		if (gotValue === "" || $.inArray(gotValue, baseListValues) !== -1  || gotValue.trim().length === 0) {
 			item.addClass('error');
