@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?p2jlz9");
+  src: url("../fonts/icomoon.eot?p2jlz9#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?p2jlz9") format("truetype"), url("../fonts/icomoon.woff?p2jlz9") format("woff"), url("../fonts/icomoon.svg?p2jlz9#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-close:before {
+  content: "\e902"; }
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.ellipsis {
+  white-space: nowrap;
+  /* 1 */
+  text-overflow: ellipsis;
+  /* 2 */
+  overflow: hidden; }
+
+a, button {
+  -webkit-transition: color 0.3s ease-in-out;
+          transition: color 0.3s ease-in-out; }
+
+#wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden; }
+
+#header {
+  padding: 15px 0;
+  background: #f8f8f8; }
+  #header .header-text {
+    font-size: 20px;
+    color: #898989; }
+
+.item-generator {
+  margin: 30px 0; }
+
+.items-list li {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 30px 10px 0; }
+  .items-list li:not(:last-child) {
+    border-bottom: 1px solid #ddd; }
+  .items-list li:hover .close {
+    opacity: 1;
+    visibility: visible; }
+
+.items-list .close {
+  -webkit-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+          transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: auto;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  color: #d9534f; }
+  .items-list .close:hover {
+    text-decoration: none; }
+
+.items-list label {
+  margin: 0;
+  padding: 0; }
+
+.items-list input[type="checkbox"] {
+  margin: 0 8px 0 0; }
+
+.done {
+  text-decoration: line-through; }
+  .done .close {
+    text-decoration: none; }
+
+.error {
+  border-color: red; }
+/*# sourceMappingURL=main.css.map */
