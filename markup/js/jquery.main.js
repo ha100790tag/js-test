@@ -52,4 +52,4 @@ $(document).ready(function(){
 	item.focus(function(){
 		$(this).removeClass('error');
 	});
-})
+});

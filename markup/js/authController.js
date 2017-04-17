@@ -1,6 +1,7 @@
 var authCtrl = (function () {
     return {
-        login: function () {
+        login: function (e) {
+            e.preventDefault();
             var email = $('#email').val();
             var pass = $('#password').val();
             
@@ -18,15 +19,18 @@ var authCtrl = (function () {
                         config.headers = {
                             'Authorization': 'Bearer ' + config.token
                         }
-                        config.userName = userName;
-                        config.isAuthorized = true;
 
-                        routeProvider.getPage('main');                        
+                        config.userName = userName;
+                        config.isAuthorized = true; 
+
+                        routeProvider.refreshHeader('registered-header');
+                        routeProvider.getPage('main');                                            
                     }
                 })
                 .fail(function (data) {
-                    console.log('error');
+                    console.log(data);
                 })
+            
         },
         logout: function () {
             authService.logout();

@@ -17,13 +17,16 @@ var authService = (function () {
 		        type: 'POST',
 		        headers: config.headers,
 		        success: function (data) {
-		            mainCtrl.clearConfig();
+		            localStorage.removeItem('token');
+		            localStorage.removeItem('userName');
+		            config.token = '';
+		            config.userName = '';
 		            config.isAuthorized = false;
-		            mainCtrl.changeNavbar();
+		            routeProvider.refreshHeader('unregistered-header');
 		            routeProvider.getPage('login');
 		        },
 		        error: function (data) {
-		            console.log('logout error', data);
+		            console.log("error");
 		        }
 		    });
 		}
