@@ -1,11 +1,31 @@
 var authCtrl = (function () {
     return {
         login: function (e) {
-            e.preventDefault();
+            var self = this;
             var email = $('#email').val();
             var pass = $('#password').val();
-            
-            authService.getToken(email, pass)
+
+            e.preventDefault(); 
+            self.getToken(email, pass);
+
+        },
+        logout: function () {
+            authService.logout()
+                .done(function (data) {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('userName');
+                    config.token = '';
+                    config.userName = '';
+                    config.isAuthorized = false;
+                    mainCtrl.refreshHeader();
+                    routeProvider.getPage('login');
+                })
+                .fail(function (data) {
+                    console.log("error");
+                })
+        },
+        getToken: function(email, password) {
+            authService.getToken(email, password)
                 .done(function (data) {
                     var token = data.access_token;
                     var userName = data.userName;
@@ -23,17 +43,13 @@ var authCtrl = (function () {
                         config.userName = userName;
                         config.isAuthorized = true; 
 
-                        routeProvider.refreshHeader('registered-header');
+                        mainCtrl.refreshHeader();
                         routeProvider.getPage('main');                                            
                     }
                 })
                 .fail(function (data) {
                     console.log(data);
                 })
-            
-        },
-        logout: function () {
-            authService.logout();
         }
     }
 })();

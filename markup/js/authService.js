@@ -12,23 +12,13 @@ var authService = (function () {
 		},
 
 		logout: function () {
-		    $.ajax({
+		    var ajax = $.ajax({
 		        url: config.logoutUrl,
 		        type: 'POST',
-		        headers: config.headers,
-		        success: function (data) {
-		            localStorage.removeItem('token');
-		            localStorage.removeItem('userName');
-		            config.token = '';
-		            config.userName = '';
-		            config.isAuthorized = false;
-		            routeProvider.refreshHeader('unregistered-header');
-		            routeProvider.getPage('login');
-		        },
-		        error: function (data) {
-		            console.log("error");
-		        }
+		        headers: config.headers
 		    });
+
+		    return ajax;
 		}
 	}
 })();
